@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="project-2-design-document">Project 2 Design Document</h1>
+<p>Feng Yutong 3038734480</p>
+<p>Tao Chujun 3038738185</p>
+<h2 id="datastorage">DataStorage</h2>
+<p><em>format explain:
+DataStore[id] = val &lt;=&gt; DatatStore{ id -&gt; val}</em></p>
+<ul>
+<li>KeyStore</li>
+</ul>
+<pre class="hljs"><code><div>{
+    // UserEncKey, UserDecKey : PKEKeyGen 
+    // DSSignKey, DSVerifyKey : DSKeyGen
+    Username + &quot;1&quot; -&gt; UserEncKey1 
+    Username + &quot;2&quot; -&gt; UserEncKey2 
+    Username + &quot;3&quot; -&gt; DsVerifyKey 
+}
+</div></code></pre>
+<p>KeyStore stores public public encryption/verification keys. <code>UserEncKey1</code> is used for encrypting invitation sent by the user. <code>UserEncKey2</code> is used for encrypting the fileUUID of the user's file. <code>DsVerifKey</code> is to verify the signature of a certain user.</p>
+<ul>
+<li>DataStore</li>
+</ul>
+<p><em>explain: XToByte means marsh X structure to byte format</em></p>
+<pre class="hljs"><code><div>{
+    // UserUUID: uuid.FromBytes(userlib.Argon2Key([]byte(username), []byte(&quot;&quot;), 16))
+    // userEncSK: Argon2Key([]byte(password), []byte(username), 16)
+	// userMacKey:= HashKDF(userEncSK, []byte(&quot;regenerate&quot;))
+    UserUUID -&gt; HMACEval(userMacKey, userEnc) || Enc(UserToByte, UserEncSK)    
+    
+    // storagekey is generated from username and filename
+    storagekey -&gt; HMACK(UserEncKey2, PKEEnc(UserEncKey2， FileEncKey || FileMacKey || FileUUID)) || PKEEnc(UserEncKey2, FileEncKey || FileMacKey || FileUUID)
+    
+    // FileEncKey, FileMacKey are randomly generated
+    FileUUID -&gt; HMACK(FileMacKey, Enc(FileToByte, FileEncKey)) || Enc(FileToByte, FileEncKey)
+    
+    // FileContentEncKey, FileContentMacKey are generated from FileEncKey, FileMacKey
+    AccessListUUID -&gt; HMAC(FileContentMacKey, Enc(ccessListToByte, FileContentEncKey)) || Enc(AccessListToByte, FileContentEncKey) 
+
+    InviteLinkUUID -&gt; DDSign(msg:{Enc(InviteLinkToByte, Receiver_UserEncKey1)},  key:{DDsignKey})
+
+    // FileContentToByte contains next block pointer, actually stores in a link list structure
+    FileHead -&gt; HMAC(FileContentMacKey, Enc(FileContentToByte, FileContentEncKey)) || Enc(FileContentToByte, FileContentEncKey) 
+    
+}
+</div></code></pre>
+<h2 id="data-structure">Data Structure</h2>
+<pre><code>- User Structure
+```
+type User struct {
+    // Stored in Mac||Enc format, symmetric encryption, keys are determined by username + password
+    Username    string
+    SignKey     userlib.DSSignKey
+    UserDecKey1 userlib.PKEDecKey
+    UserDecKey2 userlib.PKEDecKey
+}
+```
+- File Structure
+```
+type File struct {
+    // Stored in Mac||Enc format, symmetric encryption, using keys: FileEncKey, FileMacKey
+	Creator           string
+	FileLength        int
+	FileHead          userlib.UUID
+	FileTail          userlib.UUID
+	FileContentEncKey []byte
+	FileContentMacKey []byte
+	AccessListUUID    userlib.UUID
+}
+```
+- InvireLink Structure
+```
+type InviteLink struct { 
+    // Stored in {Enc}sign format, public key encryption
+	FileUUID   userlib.UUID
+	FileEncKey []byte
+	FileMacKey []byte
+	UUIDSrc    []byte // Used to generate FileUUID
+}
+```
+- AccessList Structure
+```
+type AccessList struct { 
+    // Stored in MAC||Enc format, symmetric encryption, using keys: FileContentEncKey, FileContentMacKey
+    Username string
+	Filename string
+	Edge     []Edge
+}
+```
+- Edge Structure
+```
+type Edge struct {
+	Sender   string
+	Receiver string
+	Filename string
+}
+```
+- FileContent Structure 
+```
+type FileContent struct {
+    // Stored in MAC||Enc format, symmetric encryption,using keys: FileContentEncKey, FileContentMacKey
+	EncBlock []byte 
+	NxtBlock *FileContent
+}
+```
+</code></pre>
+<h2 id="diagram">Diagram</h2>
+ <img src="161drawio.png">
+<h2 id="design">Design</h2>
+<ul>
+<li>
+<p>User Authentication</p>
+<ul>
+<li>Username Uniqueness: When creating a user, check whether the username exists in the Keystore as a key or not.</li>
+<li>Password Verification: We check whether the (username, password) pairs match by following steps:
+<ul>
+<li>Calculate Useruuid given username.</li>
+<li>Use Useruuid to find HMAC value in the Datastore</li>
+<li>Compare the recalculated HMAC value generated from the given username and password with the stored HMAC value. (Since key of HMAC is determined by username + password, only right match can give the same HMAC value)</li>
+</ul>
+</li>
+<li>Multiple user session: GetUser function calls return the pointer to the user structure instead of an instance of a user structure. So all sessions are modifying at the same address.</li>
+</ul>
+</li>
+<li>
+<p><strong>Most important logic to understand file system</strong></p>
+<ul>
+<li>User can find <code>FileUUID</code> in DataStore[storagekey], where storage key is determined by username and how he name the file. Finding <code>FileUUID</code> needs constant time.</li>
+<li><code>FileUUID</code> stores information about the file, <strong>not the content of file</strong>.</li>
+<li><code>FileHead</code> in file information pointers to where file content is actually stored in a link list structure</li>
+<li>AccessList itself is not a tree but stores all edges of the sharing tree. We can use these edges to construct a sharing tree.</li>
+</ul>
+</li>
+<li>
+<p>File Storage and Retrieval</p>
+<ul>
+<li>File Storage procedure:
+<ul>
+<li>Calculate <code>storageKey</code> with filename and username</li>
+<li>Generate <code>FileUUID</code>, <code>FileMacKey</code>, <code>FileEncKey</code> by RandomByte generator</li>
+<li>Encrypt then Mac <code>FileUUID</code>, <code>FileMacKey</code>, <code>FileEncKey</code> and store them to DataStore[storageKey]</li>
+<li>Split content by fixed-length block; encrypt and then mac each block. <code>FileContentEncKey</code>, <code>FileContentMacKey</code> is stored in file structure</li>
+<li>Store file content block by a link list structure; track its <code>head</code>, <code>tail</code> in file structure</li>
+<li><strong>Special case</strong>: if filename already exits in user's file namespace, just overwrite filecontent and update file information.</li>
+<li>Store file structure in DataStore[FileUUID]</li>
+</ul>
+</li>
+<li>File Retrieval procedure
+<ul>
+<li>Calculate <code>storageKey</code> with filename and username and use it to find <code>FileUUID</code>, <code>FileMacKey</code>, <code>FileEncKey</code></li>
+<li>Use <code>FileHead</code> to find the address of filecontent, and trasver the link list. For each block, first verify its integrity by comparing stored Mac and recalculated Mac. Then decrypt the blocsk and put them together</li>
+</ul>
+</li>
+<li>Efficient Append
+The file is split into several fixed-length byte blocks. Blocks are stored in link list with next pointer. To append a message at the end of the file, the user only needs to retrieve <code>FileTail</code> to find the last block and extend the link list. To find <code>FileUUID</code> and <code>FileTail</code> only constant time. User and file structure will not grow with the number of file number. So this will guarantee that the AppendToFile operation scale linearly with only the size of data being appended.</li>
+</ul>
+</li>
+<li>
+<p>File Sharing:</p>
+<ul>
+<li>Create Invitation:
+A user shares a file by creating a <code>InviteLink</code>. The sender encrypts the <code>InviteLink</code> with the public key of the receiver. The sender authenticates the message using a signature. Then sender send <code>InviteLinkUUID</code> to receiver.</li>
+<li>Accept Inviation:
+<ul>
+<li>Receiver receives <code>InviteLinkUUID</code> through a secure channel. Receiver verifies the signaure and decrypt<code>InviteLink</code> using his private key. The <code>InviteLink</code> contents <code>FileUUID</code>, <code>FileMacKey</code>, <code>FileEncKey</code> for receiver to get the position and value of file. Then receiver stores these information in DataStore[storagekey].</li>
+<li>Update the <code>AccessList</code> of the file by adding an edge {sender, receiver, filename}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>File Revocation</p>
+<p>The revoke process takes the following steps:</p>
+<ul>
+<li>Check whether the revoke request is valid.</li>
+<li>Delete corresponding edges in <code>AccessList</code>. The <code>AccessList</code> stores all sharing information by edges. We can perform a tree traverse on it and delete all information in the subtree of the directly revoted user.</li>
+<li>The server uses newly generated <code>FileMacKey</code>, <code>FileEncKey</code> to encrypt and Mac the file, newly generated <code>FileContentMacKey</code>, <code>FileContentEncKey</code> to encrypt and Mac the file content and new accessList. New file, file content, accessList will be moved to new place with newly generated <code>FileUUID</code>, <code>FileHead</code>, <code>AccessListUUID</code>.</li>
+<li>The server tracks users still in <code>AccessList</code> and update their DataStore[storagekey].</li>
+<li><strong>Special situation</strong>: if sender revokes  a receiver who has receive the inivitation, just delete the invitation.</li>
+</ul>
+</li>
+<li>
+<p>Helper Methods</p>
+<ul>
+<li>EncFile: encrypt and mac file content by blocks</li>
+<li>ByteCombine: concatenate server <code>[]byte</code> together</li>
+<li>LongPKEEnc, LongPKEDec: split long plaintext into blocks and encrypt/decrypt them with <code>PKEEnc/PKEDec</code>, then concatenate them together</li>
+<li>getPointer: provide filename and user pointer; return file, FileUUID, FileEncKey, FileMacKey. Called in many file functions.</li>
+<li>GetAccessList: get the accesslist of a certain file</li>
+<li>DeleAccessList: in revocation, delete all revocated users infomation in the accesslist</li>
+<li>UpdateInfo: in revocation, for non-revocated users, replace their old file with new file</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
