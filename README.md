@@ -1,8 +1,4 @@
-# Project 2 Design Document
-
-Feng Yutong 3038734480
-
-Tao Chujun 3038738185
+# Design Document
 
 ## DataStorage
 *format explain: 
